@@ -1,0 +1,14 @@
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\bin\Debug\Financial_statement v1.2.exe.config
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\bin\Debug\Financial_statement v1.2.exe
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\bin\Debug\Financial_statement v1.2.pdb
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement v1.2.csprojAssemblyReference.cache
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement_v1._2.Main.resources
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement_v1._2.Properties.Resources.resources
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement v1.2.csproj.GenerateResource.cache
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement v1.2.csproj.CoreCompileInputs.cache
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement v1.2.exe
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement v1.2.pdb
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement_v1._2.AddFlow.resources
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement_v1._2.AddBalance.resources
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement_v1._2.EditBalance.resources
+C:\Users\Denis Prelog\Dropbox\Programiranje\C#\Financial Statement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement_v1._2.EditFlow.resources
