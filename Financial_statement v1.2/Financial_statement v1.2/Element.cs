@@ -8,22 +8,26 @@ namespace Financial_statement_v1._2
 {
     public abstract class Element
     {
-        protected string ID { set; get; }
+        protected int ID { set; get; }
         protected string name { set; get; }
         protected double cashflow { set; get; }
 
         protected Config.Flow flow { set; get; }
 
-        public Element(string ID, string name, double cashflow)
+        private Random rnd;
+
+        public Element(string name, double cashflow)
         {
-            this.ID = ID;
+            rnd = new Random();
             this.name = name;
             this.cashflow = cashflow;
+
+            this.SetID();
         }
 
         #region Getters
 
-        public string GetID()
+        public int GetID()
         {
             return this.ID;
         }
@@ -51,7 +55,15 @@ namespace Financial_statement_v1._2
 
         #region Setters
 
-        public void SetID(string ID)
+        public void SetID()
+        {
+            this.ID = rnd.Next(1000) + 1;
+
+            while (Main.GetInstance().ExistsID(ID))
+                this.ID = rnd.Next(1000) + 1;
+        }
+
+        public void SetID(int ID)
         {
             this.ID = ID;
         }

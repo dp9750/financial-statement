@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblID = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.lblValue = new System.Windows.Forms.Label();
             this.nudValue = new System.Windows.Forms.NumericUpDown();
             this.lblCashflow = new System.Windows.Forms.Label();
@@ -43,26 +41,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCashflow)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(12, 9);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(21, 17);
-            this.lblID.TabIndex = 37;
-            this.lblID.Text = "ID";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(12, 33);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(151, 23);
-            this.txtID.TabIndex = 36;
-            // 
             // lblValue
             // 
             this.lblValue.AutoSize = true;
-            this.lblValue.Location = new System.Drawing.Point(12, 286);
+            this.lblValue.Location = new System.Drawing.Point(12, 218);
             this.lblValue.Name = "lblValue";
             this.lblValue.Size = new System.Drawing.Size(45, 17);
             this.lblValue.TabIndex = 35;
@@ -70,7 +52,7 @@
             // 
             // nudValue
             // 
-            this.nudValue.Location = new System.Drawing.Point(16, 310);
+            this.nudValue.Location = new System.Drawing.Point(16, 242);
             this.nudValue.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -83,7 +65,7 @@
             // lblCashflow
             // 
             this.lblCashflow.AutoSize = true;
-            this.lblCashflow.Location = new System.Drawing.Point(12, 219);
+            this.lblCashflow.Location = new System.Drawing.Point(12, 151);
             this.lblCashflow.Name = "lblCashflow";
             this.lblCashflow.Size = new System.Drawing.Size(69, 17);
             this.lblCashflow.TabIndex = 33;
@@ -92,7 +74,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(12, 147);
+            this.lblName.Location = new System.Drawing.Point(12, 79);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(48, 17);
             this.lblName.TabIndex = 32;
@@ -101,7 +83,7 @@
             // lblFlow
             // 
             this.lblFlow.AutoSize = true;
-            this.lblFlow.Location = new System.Drawing.Point(12, 77);
+            this.lblFlow.Location = new System.Drawing.Point(12, 9);
             this.lblFlow.Name = "lblFlow";
             this.lblFlow.Size = new System.Drawing.Size(92, 17);
             this.lblFlow.TabIndex = 31;
@@ -109,7 +91,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(16, 356);
+            this.btnUpdate.Location = new System.Drawing.Point(16, 288);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(147, 33);
             this.btnUpdate.TabIndex = 30;
@@ -119,7 +101,7 @@
             // 
             // nudCashflow
             // 
-            this.nudCashflow.Location = new System.Drawing.Point(16, 243);
+            this.nudCashflow.Location = new System.Drawing.Point(16, 175);
             this.nudCashflow.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -131,7 +113,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(12, 171);
+            this.txtName.Location = new System.Drawing.Point(12, 103);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(151, 23);
             this.txtName.TabIndex = 28;
@@ -142,7 +124,7 @@
             this.cbBalance.Items.AddRange(new object[] {
             "Asset",
             "Liability"});
-            this.cbBalance.Location = new System.Drawing.Point(12, 101);
+            this.cbBalance.Location = new System.Drawing.Point(12, 33);
             this.cbBalance.Name = "cbBalance";
             this.cbBalance.Size = new System.Drawing.Size(151, 25);
             this.cbBalance.TabIndex = 27;
@@ -151,9 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(183, 412);
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.txtID);
+            this.ClientSize = new System.Drawing.Size(183, 333);
             this.Controls.Add(this.lblValue);
             this.Controls.Add(this.nudValue);
             this.Controls.Add(this.lblCashflow);
@@ -180,9 +160,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblValue;
         private System.Windows.Forms.NumericUpDown nudValue;
         private System.Windows.Forms.Label lblCashflow;

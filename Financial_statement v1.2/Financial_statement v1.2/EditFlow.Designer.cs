@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lblID = new System.Windows.Forms.Label();
             this.lblCashflow = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblFlow = new System.Windows.Forms.Label();
@@ -40,26 +38,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCashflow)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(11, 29);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(151, 23);
-            this.txtID.TabIndex = 24;
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(12, 9);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(21, 17);
-            this.lblID.TabIndex = 23;
-            this.lblID.Text = "ID";
-            // 
             // lblCashflow
             // 
             this.lblCashflow.AutoSize = true;
-            this.lblCashflow.Location = new System.Drawing.Point(11, 212);
+            this.lblCashflow.Location = new System.Drawing.Point(12, 151);
             this.lblCashflow.Name = "lblCashflow";
             this.lblCashflow.Size = new System.Drawing.Size(69, 17);
             this.lblCashflow.TabIndex = 22;
@@ -68,7 +50,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(11, 140);
+            this.lblName.Location = new System.Drawing.Point(12, 79);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(48, 17);
             this.lblName.TabIndex = 21;
@@ -77,7 +59,7 @@
             // lblFlow
             // 
             this.lblFlow.AutoSize = true;
-            this.lblFlow.Location = new System.Drawing.Point(11, 70);
+            this.lblFlow.Location = new System.Drawing.Point(12, 9);
             this.lblFlow.Name = "lblFlow";
             this.lblFlow.Size = new System.Drawing.Size(100, 17);
             this.lblFlow.TabIndex = 20;
@@ -85,7 +67,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(15, 290);
+            this.btnUpdate.Location = new System.Drawing.Point(16, 229);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(147, 33);
             this.btnUpdate.TabIndex = 19;
@@ -95,7 +77,7 @@
             // 
             // nudCashflow
             // 
-            this.nudCashflow.Location = new System.Drawing.Point(15, 236);
+            this.nudCashflow.Location = new System.Drawing.Point(16, 175);
             this.nudCashflow.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -107,7 +89,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(11, 164);
+            this.txtName.Location = new System.Drawing.Point(12, 103);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(151, 23);
             this.txtName.TabIndex = 17;
@@ -118,7 +100,7 @@
             this.cbFlow.Items.AddRange(new object[] {
             "Income",
             "Expense"});
-            this.cbFlow.Location = new System.Drawing.Point(11, 94);
+            this.cbFlow.Location = new System.Drawing.Point(12, 33);
             this.cbFlow.Name = "cbFlow";
             this.cbFlow.Size = new System.Drawing.Size(151, 25);
             this.cbFlow.TabIndex = 16;
@@ -127,9 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(183, 345);
-            this.Controls.Add(this.txtID);
-            this.Controls.Add(this.lblID);
+            this.ClientSize = new System.Drawing.Size(183, 275);
             this.Controls.Add(this.lblCashflow);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblFlow);
@@ -153,9 +133,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblCashflow;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblFlow;

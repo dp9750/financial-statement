@@ -21,16 +21,15 @@ namespace Financial_statement_v1._2
         // add button
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            string ID = txtID.Text;
             string flow = cbFlow.Text;
             string name = txtName.Text;
             decimal cashflow = nudCashflow.Value;
             decimal value = nudValue.Value;
 
-            if (!Main.GetInstance().ValidInfo(ID, flow, name, cashflow, value))
+            if (!Main.GetInstance().ValidInfo(flow, name, cashflow, value))
                 MessageBox.Show("Invalid Information");
             else {
-                Main.GetInstance().WriteToFile(new Balance(ID, name, double.Parse(cashflow.ToString()), Config.GetBalance(flow), double.Parse(value.ToString())));
+                Main.GetInstance().WriteToFile(new Balance(name, double.Parse(cashflow.ToString()), Config.GetBalance(flow), double.Parse(value.ToString())));
                 Main.GetInstance().Update();
                 MessageBox.Show(flow + " Added Successfully");
                 Close();

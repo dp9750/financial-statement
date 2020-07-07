@@ -5,7 +5,7 @@ namespace Financial_statement_v1._2
     public class Flow : Element
     {
 
-        public Flow(string ID, string name, double cashflow, Config.Flow flow) : base(ID, name, cashflow)
+        public Flow(string name, double cashflow, Config.Flow flow) : base(name, cashflow)
         {
             this.flow = flow;
         }

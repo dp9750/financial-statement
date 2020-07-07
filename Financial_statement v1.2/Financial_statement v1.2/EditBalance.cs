@@ -33,21 +33,20 @@ namespace Financial_statement_v1._2
         // button 'Update'
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            string ID = txtID.Text;
             string balance = cbBalance.Text;
             string name = txtName.Text;
             decimal cashflow = nudCashflow.Value;
             decimal value = nudValue.Value;
 
-            if (!instance.ValidInfo(ID, balance, name, cashflow, value))
+            if (!instance.ValidInfo(balance, name, cashflow, value))
                 MessageBox.Show("Invalid Information");
             else {
-
-                Element newElement = new Balance(ID, name, double.Parse(cashflow.ToString()), Config.GetBalance(balance), double.Parse(value.ToString()));
+                Element newElement = new Balance(name, double.Parse(cashflow.ToString()), Config.GetBalance(balance), double.Parse(value.ToString()));
 
                 instance.DeleteElement(element);
                 instance.WriteToFile(newElement);
                 instance.Update();
+                instance.DisableButtons();
 
                 MessageBox.Show("Element Updated Successfully");
                 Close();
@@ -76,7 +75,6 @@ namespace Financial_statement_v1._2
         // Fill The Information
         private void FillInfo()
         {
-            txtID.Text = element.GetID();
             txtName.Text = element.GetName();
             nudCashflow.Value = decimal.Parse(element.GetCashflow().ToString());
             SelectBalance();

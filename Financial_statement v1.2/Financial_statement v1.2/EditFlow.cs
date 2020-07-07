@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Financial_statement_v1._2
@@ -35,19 +28,20 @@ namespace Financial_statement_v1._2
         // button 'Update'
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            string ID = txtID.Text;
             string flow = cbFlow.Text;
             string name = txtName.Text;
             decimal cashflow = nudCashflow.Value;
 
-            if (!instance.ValidInfo(ID, flow, name, cashflow))
+            if (!instance.ValidInfo(flow, name, cashflow))
                 MessageBox.Show("Invalid Information");
             else {
-                Element newElement = new Flow(ID, name, double.Parse(cashflow.ToString()), Config.GetFlow(flow));
+                Element newElement = new Flow(name, double.Parse(cashflow.ToString()), Config.GetFlow(flow));
 
                 instance.DeleteElement(element);
                 instance.WriteToFile(newElement);
                 instance.Update();
+                instance.DisableButtons();
+
 
                 MessageBox.Show("Element Updated Successfully");
                 Close();
@@ -75,7 +69,6 @@ namespace Financial_statement_v1._2
         // Fill The Information
         private void FillInfo()
         {
-            txtID.Text = element.GetID();
             SelectFlow();
             txtName.Text = element.GetName();
             nudCashflow.Value = decimal.Parse(element.GetCashflow().ToString());

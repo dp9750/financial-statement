@@ -12,8 +12,6 @@ namespace Financial_statement_v1._2
          * Asset / Liability:   Type;ID;name;cashflow;value
         */
 
-        // TODO: unique ID's
-
         #region Variables
 
         // povezava
@@ -29,7 +27,7 @@ namespace Financial_statement_v1._2
         private double totalIncome = 0, totalExpenses = 0, passive = 0, badDebth = 0;
 
         // the selected ID to update or delete
-        private string selectedID = null;
+        private int selectedID = 0;
 
         #endregion
 
@@ -55,11 +53,6 @@ namespace Financial_statement_v1._2
             return instance;
         }
 
-        public List<Element> GetElements()
-        {
-            return this.elements;
-        }
-
         #endregion
 
         #region Validators
@@ -74,6 +67,12 @@ namespace Financial_statement_v1._2
             if (!Config.ValidType(words[0]))
                 return false;
 
+            if (!int.TryParse(words[1], out _))
+                return false;
+
+            if (ExistsID(int.Parse(words[1])))
+                return false;
+
             if (!double.TryParse(words[3], out _))
                 return false;
 
@@ -85,9 +84,9 @@ namespace Financial_statement_v1._2
         }
 
         // used in 'Add Flow'
-        public bool ValidInfo(string ID, string flow, string name, decimal cashflow)
+        public bool ValidInfo(string flow, string name, decimal cashflow)
         {
-            if (ID == "" || name == "")
+            if (name == "")
                 return false;
 
             if (!Config.IsFlow(flow))
@@ -97,9 +96,9 @@ namespace Financial_statement_v1._2
         }
 
         // used in 'Add Balance'
-        public bool ValidInfo(string ID, string flow, string name, decimal cashflow, decimal value)
+        public bool ValidInfo(string flow, string name, decimal cashflow, decimal value)
         {
-            if (ID == "" || name == "")
+            if (name == "")
                 return false;
 
             if (!Config.IsBalance(flow))
@@ -109,6 +108,14 @@ namespace Financial_statement_v1._2
                 return false;
 
             return double.TryParse(cashflow.ToString(), out _);
+        }
+
+        public bool ExistsID(int ID)
+        {
+            foreach (Element e in elements)
+                if (e.GetID() == ID)
+                    return true;
+            return false;
         }
 
         #endregion
@@ -148,6 +155,7 @@ namespace Financial_statement_v1._2
                     WriteToFile(element);
 
             Update();
+            DisableButtons();
         }
 
         #endregion
@@ -193,7 +201,7 @@ namespace Financial_statement_v1._2
             ReadFile();
 
             foreach (Element e in elements) { // loop through every valid element in read file
-                string ID = e.GetID();
+                int ID = e.GetID();
                 string name = e.GetName();
                 double cashflow = e.GetCashflow();
 
@@ -242,15 +250,19 @@ namespace Financial_statement_v1._2
             try {
                 string[] words = line.Split(';');
 
-                string ID = words[1];
+                int ID = int.Parse(words[1]);
                 string name = words[2];
                 string type = words[0];
                 double cashflow = double.Parse(words[3]);
 
+                Element e;
                 if (words.Length == 4)
-                    elements.Add(new Flow(ID, name, cashflow, Config.GetFlow(type)));
+                    e = new Flow(name, cashflow, Config.GetFlow(type));
                 else
-                    elements.Add(new Balance(ID, name, cashflow, Config.GetBalance(type), double.Parse(words[4])));
+                    e = new Balance(name, cashflow, Config.GetBalance(type), double.Parse(words[4]));
+
+                e.SetID(ID);
+                elements.Add(e);
 
             } catch(Exception) {
                 Console.WriteLine("Error Proccessing Line");
@@ -271,7 +283,7 @@ namespace Financial_statement_v1._2
             window.ShowDialog();
         }
 
-        private Element FindID(string ID)
+        private Element FindID(int ID)
         {
             foreach (Element e in elements)
                 if (ID == e.GetID())
@@ -281,12 +293,12 @@ namespace Financial_statement_v1._2
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            if(selectedID != null) { 
-                Element element = FindID(selectedID.ToString());
+            if(selectedID != 0) { 
+                Element element = FindID(selectedID);
 
                 if (element == null) {
                     MessageBox.Show("Error with element ID");
-                    selectedID = null;
+                    selectedID = 0;
                 } else {
                     if(Balance.ToString() == element.GetType().Name) {
                         EditBalance editBalance = new EditBalance(element);
@@ -302,11 +314,11 @@ namespace Financial_statement_v1._2
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            if (selectedID != null) {
+            if (selectedID != 0) {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this element? ", "Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if(result == DialogResult.Yes) {
                     DeleteElement(FindID(selectedID));
-                    selectedID = null;
+                    selectedID = 0;
                     DisableButtons();
                     Update();
                     MessageBox.Show("Element deleted successfully");
@@ -324,45 +336,74 @@ namespace Financial_statement_v1._2
             btnDelete.Enabled = true;
         }
 
-        private void DisableButtons()
+        public void DisableButtons()
         {
             btnEdit.Enabled = false;
             btnDelete.Enabled = false;
+
+            selectedID = 0;
         }
 
-        private string GetID(string line)
+        private int GetID(string line)
         {
-            return line.Split(' ')[0];
+            return int.Parse(line.Split(' ')[0]);
+        }
+
+        private void ProcessID()
+        {
+            if (selectedID == 0) {
+                DisableButtons();
+                MessageBox.Show("ID error");
+            } else
+                EnableButtons();
         }
 
         private void LbIncome_SelectedIndexChanged(object sender, EventArgs e)
         {
             try {
                 selectedID = GetID(lbIncome.SelectedItem.ToString());
-                EnableButtons();
+                ProcessID();
             } catch(Exception) {
-                MessageBox.Show("Error");
-                selectedID = null;
+                MessageBox.Show("Error\n SelectedID: " + selectedID);
+                selectedID = 0;
                 DisableButtons();
             }
         }
 
         private void LbExpense_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedID = GetID(lbExpense.SelectedItem.ToString());
-            EnableButtons();
+            try {
+                selectedID = GetID(lbExpense.SelectedItem.ToString());
+                ProcessID();
+            } catch (Exception) {
+                MessageBox.Show("Error\n SelectedID: " + selectedID);
+                selectedID = 0;
+                DisableButtons();
+            }
         }
 
         private void LbAssets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedID = GetID(lbAssets.SelectedItem.ToString());
-            EnableButtons();
+            try {
+                selectedID = GetID(lbAssets.SelectedItem.ToString());
+                ProcessID();
+            } catch (Exception) {
+                MessageBox.Show("Error\n SelectedID: " + selectedID);
+                selectedID = 0;
+                DisableButtons();
+            }
         }
 
         private void LbLiabilities_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedID = GetID(lbLiabilities.SelectedItem.ToString());
-            EnableButtons();
+            try {
+                selectedID = GetID(lbLiabilities.SelectedItem.ToString());
+                ProcessID();
+            } catch (Exception) {
+                MessageBox.Show("Error\n SelectedID: " + selectedID);
+                selectedID = 0;
+                DisableButtons();
+            }
         }
 
         #endregion

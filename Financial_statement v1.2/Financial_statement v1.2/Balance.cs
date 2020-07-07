@@ -11,7 +11,7 @@ namespace Financial_statement_v1._2
         private Config.Balance balance { set; get; }
         private double value { set; get; }
 
-        public Balance(string ID, string name, double cashflow, Config.Balance balance, double value) : base(ID, name, cashflow)
+        public Balance(string name, double cashflow, Config.Balance balance, double value) : base(name, cashflow)
         {
             this.balance = balance;
             this.flow = Config.FlowOfBalance(balance);
