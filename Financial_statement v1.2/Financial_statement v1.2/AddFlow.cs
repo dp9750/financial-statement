@@ -5,10 +5,13 @@ namespace Financial_statement_v1._2
 {
     public partial class AddFlow : Form
     {
+        private FileHandler FileHandler { set; get; }
+
         // konstruktor
-        public AddFlow()
+        public AddFlow(FileHandler FileHandler)
         {
             InitializeComponent();
+            this.FileHandler = FileHandler;
         }
 
         // Button Add
@@ -21,7 +24,7 @@ namespace Financial_statement_v1._2
             if (!Main.GetInstance().ValidInfo(flow, name, cashflow))
                 MessageBox.Show("Invalid Information");
             else {
-                Main.GetInstance().WriteToFile(new Flow(name, double.Parse(cashflow.ToString()), Config.GetFlow(flow)));
+                FileHandler.WriteToFile(new Flow(name, double.Parse(cashflow.ToString()), Config.GetFlow(flow)));
                 Main.GetInstance().Update();
                 MessageBox.Show(flow + " Added Successfully");
                 Close();

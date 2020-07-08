@@ -12,10 +12,13 @@ namespace Financial_statement_v1._2
 {
     public partial class AddBalance : Form
     {
+        private FileHandler FileHandler { set; get; }
+
         // konstruktor
-        public AddBalance()
+        public AddBalance(FileHandler FileHandler)
         {
             InitializeComponent();
+            this.FileHandler = FileHandler;
         }
 
         // add button
@@ -29,7 +32,7 @@ namespace Financial_statement_v1._2
             if (!Main.GetInstance().ValidInfo(flow, name, cashflow, value))
                 MessageBox.Show("Invalid Information");
             else {
-                Main.GetInstance().WriteToFile(new Balance(name, double.Parse(cashflow.ToString()), Config.GetBalance(flow), double.Parse(value.ToString())));
+                FileHandler.WriteToFile(new Balance(name, double.Parse(cashflow.ToString()), Config.GetBalance(flow), double.Parse(value.ToString())));
                 Main.GetInstance().Update();
                 MessageBox.Show(flow + " Added Successfully");
                 Close();

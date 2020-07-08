@@ -14,13 +14,16 @@ namespace Financial_statement_v1._2
     {
         private Main instance = null; // povezava na main
 
-        private Element element = null; // element za obdelavo
+        private Element element; // element za obdelavo
+
+        private FileHandler FileHandler;
 
         // konstuktor
-        public EditBalance(Element element)
+        public EditBalance(Element element, FileHandler FileHandler)
         {
             InitializeComponent();
             this.element = element;
+            this.FileHandler = FileHandler;
         }
 
         // form load
@@ -43,8 +46,9 @@ namespace Financial_statement_v1._2
             else {
                 Element newElement = new Balance(name, double.Parse(cashflow.ToString()), Config.GetBalance(balance), double.Parse(value.ToString()));
 
-                instance.DeleteElement(element);
-                instance.WriteToFile(newElement);
+                FileHandler.DeleteElement(element);
+                FileHandler.WriteToFile(newElement);
+
                 instance.Update();
                 instance.DisableButtons();
 

@@ -9,13 +9,17 @@ namespace Financial_statement_v1._2
         private Main instance = null;
 
         // element za obdelavo
-        private Element element = null;
+        private Element element;
+
+        // File Handler za datoteke
+        private FileHandler FileHandler;
 
         // konstruktor
-        public EditFlow(Element element)
+        public EditFlow(Element element, FileHandler FileHandler)
         {
             InitializeComponent();
             this.element = element;
+            this.FileHandler = FileHandler;
         }
 
         // form load
@@ -37,11 +41,11 @@ namespace Financial_statement_v1._2
             else {
                 Element newElement = new Flow(name, double.Parse(cashflow.ToString()), Config.GetFlow(flow));
 
-                instance.DeleteElement(element);
-                instance.WriteToFile(newElement);
+                FileHandler.DeleteElement(element);
+                FileHandler.WriteToFile(newElement);
+
                 instance.Update();
                 instance.DisableButtons();
-
 
                 MessageBox.Show("Element Updated Successfully");
                 Close();

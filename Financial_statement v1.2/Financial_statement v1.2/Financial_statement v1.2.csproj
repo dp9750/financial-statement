@@ -73,6 +73,7 @@
       <DependentUpon>EditFlow.cs</DependentUpon>
     </Compile>
     <Compile Include="Element.cs" />
+    <Compile Include="FileHandler.cs" />
     <Compile Include="Flow.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

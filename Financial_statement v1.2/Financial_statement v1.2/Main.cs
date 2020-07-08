@@ -7,10 +7,6 @@ namespace Financial_statement_v1._2
 {
     public partial class Main : Form
     {
-        /*
-         * Income / Expense:    Type;ID;name;cashflow
-         * Asset / Liability:   Type;ID;name;cashflow;value
-        */
 
         #region Variables
 
@@ -29,6 +25,9 @@ namespace Financial_statement_v1._2
         // the selected ID to update or delete
         private int selectedID = 0;
 
+        // Handles the file (reading, writting, deleting elements)
+        private FileHandler FileHandler;
+
         #endregion
 
         #region Setup
@@ -39,6 +38,7 @@ namespace Financial_statement_v1._2
             InitializeComponent();
             instance = this;
             elements = new List<Element>();
+            FileHandler = new FileHandler(this, file);
         }
 
         // form load
@@ -53,11 +53,16 @@ namespace Financial_statement_v1._2
             return instance;
         }
 
+        public string GetFileName()
+        {
+            return this.file;
+        }
+
         #endregion
 
         #region Validators
 
-        private bool ValidLine(string line)
+        public bool ValidLine(string line)
         {
             string[] words = line.Split(';');
 
@@ -120,46 +125,6 @@ namespace Financial_statement_v1._2
 
         #endregion
 
-        #region File Handling 
-
-        private void ReadFile()
-        {
-            try {
-                StreamReader sr = new StreamReader(file);
-                string line = "";
-                while ((line = sr.ReadLine()) != null)
-                    if (ValidLine(line))
-                        ProcessLine(line);
-                sr.Close();
-            } catch (Exception) {
-
-            }
-        }
-
-        public void WriteToFile(Element e)
-        {
-            if (Balance.ToString() == e.GetType().Name)
-                using (StreamWriter sw = File.AppendText(file))
-                    sw.WriteLine(e.GetBalance() + ";" + e.GetID() + ";" + e.GetName() + ";" + e.GetCashflow() + ";" + e.GetValue());
-            else
-                using (StreamWriter sw = File.AppendText(file))
-                    sw.WriteLine(e.GetFlow() + ";" + e.GetID() + ";" + e.GetName() + ";" + e.GetCashflow());
-        }
-
-        public void DeleteElement(Element e)
-        {
-            File.Delete(file);
-
-            foreach(Element element in elements)
-                if(element.GetID() != e.GetID())
-                    WriteToFile(element);
-
-            Update();
-            DisableButtons();
-        }
-
-        #endregion
-
         #region Updates
 
         // clear all listboxes, reset values
@@ -198,7 +163,7 @@ namespace Financial_statement_v1._2
         public new void Update()
         {
             ClearAll();
-            ReadFile();
+            FileHandler.ReadFile();
 
             foreach (Element e in elements) { // loop through every valid element in read file
                 int ID = e.GetID();
@@ -245,7 +210,7 @@ namespace Financial_statement_v1._2
         #endregion
 
         // Build the list with all elements
-        private void ProcessLine(string line)
+        public void ProcessLine(string line)
         {
             try {
                 string[] words = line.Split(';');
@@ -278,13 +243,13 @@ namespace Financial_statement_v1._2
 
         private void BtnAddFlow_Click(object sender, EventArgs e)
         {
-            AddFlow window = new AddFlow();
+            AddFlow window = new AddFlow(FileHandler);
             window.ShowDialog();
         }
 
         private void BtnAddBalance_Click(object sender, EventArgs e)
         {
-            AddBalance window = new AddBalance();
+            AddBalance window = new AddBalance(FileHandler);
             window.ShowDialog();
         }
 
@@ -306,10 +271,10 @@ namespace Financial_statement_v1._2
                     selectedID = 0;
                 } else {
                     if(Balance.ToString() == element.GetType().Name) {
-                        EditBalance editBalance = new EditBalance(element);
+                        EditBalance editBalance = new EditBalance(element, FileHandler);
                         editBalance.ShowDialog();
                     } else {
-                        EditFlow editFlow = new EditFlow(element);
+                        EditFlow editFlow = new EditFlow(element, FileHandler);
                         editFlow.ShowDialog();
                     }
                 }
@@ -322,7 +287,7 @@ namespace Financial_statement_v1._2
             if (selectedID != 0) {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this element? ", "Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if(result == DialogResult.Yes) {
-                    DeleteElement(FindID(selectedID));
+                    FileHandler.DeleteElement(FindID(selectedID));
                     selectedID = 0;
                     DisableButtons();
                     Update();
