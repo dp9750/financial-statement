@@ -271,6 +271,11 @@ namespace Financial_statement_v1._2
 
         #region Button Clicks
 
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void BtnAddFlow_Click(object sender, EventArgs e)
         {
             AddFlow window = new AddFlow();
