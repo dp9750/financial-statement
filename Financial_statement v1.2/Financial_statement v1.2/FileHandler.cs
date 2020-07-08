@@ -5,12 +5,12 @@ namespace Financial_statement_v1._2
 {
     public class FileHandler
     {
-        private Main instance { set; get; }
+        private Main Main { set; get; }
         private string file { set; get; }
 
-        public FileHandler(Main instance, string file)
+        public FileHandler(string file)
         {
-            this.instance = instance;
+            this.Main = Main.GetInstance();
             this.file = file;
         }
 
@@ -21,8 +21,8 @@ namespace Financial_statement_v1._2
                 StreamReader sr = new StreamReader(file);
                 string line = "";
                 while ((line = sr.ReadLine()) != null)
-                    if (instance.ValidLine(line))
-                        instance.ProcessLine(line);
+                    if (Main.ValidLine(line))
+                        Main.ProcessLine(line);
                 sr.Close();
             } catch (Exception) {
                 Console.WriteLine("Error reading file");
@@ -34,12 +34,12 @@ namespace Financial_statement_v1._2
         {
             File.Delete(file);
 
-            foreach (Element element in instance.elements)
+            foreach (Element element in Main.elements)
                 if (element.GetID() != e.GetID())
                     WriteToFile(element);
 
-            instance.Update();
-            instance.DisableButtons();
+            Main.Update();
+            Main.DisableButtons();
         }
 
         // Append to file according to the type

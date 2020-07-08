@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.IO;
+using System.Windows.Forms; 
 using System.Collections.Generic;
 
 namespace Financial_statement_v1._2
@@ -25,8 +24,7 @@ namespace Financial_statement_v1._2
         // the selected ID to update or delete
         private int selectedID = 0;
 
-        // Handles the file (reading, writting, deleting elements)
-        private FileHandler FileHandler;
+        private FileHandler FileHandler { set; get; }
 
         #endregion
 
@@ -38,7 +36,7 @@ namespace Financial_statement_v1._2
             InitializeComponent();
             instance = this;
             elements = new List<Element>();
-            FileHandler = new FileHandler(this, file);
+            FileHandler = new FileHandler(file);
         }
 
         // form load
@@ -51,11 +49,6 @@ namespace Financial_statement_v1._2
         public static Main GetInstance()
         {
             return instance;
-        }
-
-        public string GetFileName()
-        {
-            return this.file;
         }
 
         #endregion
@@ -234,6 +227,45 @@ namespace Financial_statement_v1._2
             }
         }
 
+        // Finds the element with given ID
+        private Element FindID(int ID)
+        {
+            foreach (Element e in elements)
+                if (ID == e.GetID())
+                    return e;
+            return null;
+        }
+
+        private void EnableButtons()
+        {
+            btnEdit.Enabled = true;
+            btnDelete.Enabled = true;
+        }
+
+        public void DisableButtons()
+        {
+            btnEdit.Enabled = false;
+            btnDelete.Enabled = false;
+
+            selectedID = 0;
+        }
+
+        private int GetID(string line)
+        {
+            return int.Parse(line.Split(' ')[0]);
+        }
+
+        private void ProcessID()
+        {
+            if (selectedID == 0)
+            {
+                DisableButtons();
+                MessageBox.Show("ID error");
+            }
+            else
+                EnableButtons();
+        }
+
         #region Button Clicks
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -251,14 +283,6 @@ namespace Financial_statement_v1._2
         {
             AddBalance window = new AddBalance(FileHandler);
             window.ShowDialog();
-        }
-
-        private Element FindID(int ID)
-        {
-            foreach (Element e in elements)
-                if (ID == e.GetID())
-                    return e;
-            return null;
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -300,41 +324,12 @@ namespace Financial_statement_v1._2
 
         #region Selected Index Changed
 
-        private void EnableButtons()
-        {
-            btnEdit.Enabled = true;
-            btnDelete.Enabled = true;
-        }
-
-        public void DisableButtons()
-        {
-            btnEdit.Enabled = false;
-            btnDelete.Enabled = false;
-
-            selectedID = 0;
-        }
-
-        private int GetID(string line)
-        {
-            return int.Parse(line.Split(' ')[0]);
-        }
-
-        private void ProcessID()
-        {
-            if (selectedID == 0) {
-                DisableButtons();
-                MessageBox.Show("ID error");
-            } else
-                EnableButtons();
-        }
-
         private void LbIncome_SelectedIndexChanged(object sender, EventArgs e)
         {
             try {
                 selectedID = GetID(lbIncome.SelectedItem.ToString());
                 ProcessID();
             } catch(Exception) {
-                MessageBox.Show("Error\n SelectedID: " + selectedID);
                 selectedID = 0;
                 DisableButtons();
             }
@@ -346,7 +341,6 @@ namespace Financial_statement_v1._2
                 selectedID = GetID(lbExpense.SelectedItem.ToString());
                 ProcessID();
             } catch (Exception) {
-                MessageBox.Show("Error\n SelectedID: " + selectedID);
                 selectedID = 0;
                 DisableButtons();
             }
@@ -358,7 +352,6 @@ namespace Financial_statement_v1._2
                 selectedID = GetID(lbAssets.SelectedItem.ToString());
                 ProcessID();
             } catch (Exception) {
-                MessageBox.Show("Error\n SelectedID: " + selectedID);
                 selectedID = 0;
                 DisableButtons();
             }
@@ -370,7 +363,6 @@ namespace Financial_statement_v1._2
                 selectedID = GetID(lbLiabilities.SelectedItem.ToString());
                 ProcessID();
             } catch (Exception) {
-                MessageBox.Show("Error\n SelectedID: " + selectedID);
                 selectedID = 0;
                 DisableButtons();
             }

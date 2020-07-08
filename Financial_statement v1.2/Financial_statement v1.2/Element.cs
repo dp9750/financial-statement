@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Financial_statement_v1._2
 {
@@ -55,7 +51,7 @@ namespace Financial_statement_v1._2
 
         #region Setters
 
-        public void SetID()
+        private void SetID()
         {
             this.ID = rnd.Next(1000) + 1;
 
@@ -66,21 +62,6 @@ namespace Financial_statement_v1._2
         public void SetID(int ID)
         {
             this.ID = ID;
-        }
-
-        public void SetName(string name)
-        {
-            this.name = name;
-        }
-
-        public void SetCashflow(double cashflow)
-        {
-            this.cashflow = cashflow;
-        }
-
-        public void SetFlow(Config.Flow flow)
-        {
-            this.flow = flow;
         }
 
         #endregion

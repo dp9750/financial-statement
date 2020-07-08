@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Financial_statement_v1._2
 {
     public partial class EditBalance : Form
     {
-        private Main instance = null; // povezava na main
+        private Main Main = null; // povezava na main
 
         private Element element; // element za obdelavo
 
@@ -23,13 +16,13 @@ namespace Financial_statement_v1._2
         {
             InitializeComponent();
             this.element = element;
+            this.Main = Main.GetInstance();
             this.FileHandler = FileHandler;
         }
 
         // form load
         private void EditBalance_Load(object sender, EventArgs e)
         {
-            instance = Main.GetInstance();
             FillInfo();
         }
 
@@ -41,7 +34,7 @@ namespace Financial_statement_v1._2
             decimal cashflow = nudCashflow.Value;
             decimal value = nudValue.Value;
 
-            if (!instance.ValidInfo(balance, name, cashflow, value))
+            if (!Main.ValidInfo(balance, name, cashflow, value))
                 MessageBox.Show("Invalid Information");
             else {
                 Element newElement = new Balance(name, double.Parse(cashflow.ToString()), Config.GetBalance(balance), double.Parse(value.ToString()));
@@ -49,8 +42,8 @@ namespace Financial_statement_v1._2
                 FileHandler.DeleteElement(element);
                 FileHandler.WriteToFile(newElement);
 
-                instance.Update();
-                instance.DisableButtons();
+                Main.Update();
+                Main.DisableButtons();
 
                 MessageBox.Show("Element Updated Successfully");
                 Close();
