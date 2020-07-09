@@ -48,6 +48,7 @@
             // 
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -62,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 265);
+            this.label1.Location = new System.Drawing.Point(24, 265);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 45;
@@ -70,7 +71,7 @@
             // 
             // nudValue
             // 
-            this.nudValue.Location = new System.Drawing.Point(27, 289);
+            this.nudValue.Location = new System.Drawing.Point(28, 289);
             this.nudValue.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -83,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 198);
+            this.label2.Location = new System.Drawing.Point(24, 198);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 43;
@@ -92,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 126);
+            this.label3.Location = new System.Drawing.Point(24, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 17);
             this.label3.TabIndex = 42;
@@ -101,7 +102,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 56);
+            this.label4.Location = new System.Drawing.Point(24, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 17);
             this.label4.TabIndex = 41;
@@ -113,7 +114,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUpdate.Location = new System.Drawing.Point(27, 335);
+            this.btnUpdate.Location = new System.Drawing.Point(28, 335);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(181, 43);
             this.btnUpdate.TabIndex = 40;
@@ -123,7 +124,7 @@
             // 
             // nudCashflow
             // 
-            this.nudCashflow.Location = new System.Drawing.Point(27, 222);
+            this.nudCashflow.Location = new System.Drawing.Point(28, 222);
             this.nudCashflow.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -135,7 +136,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(23, 150);
+            this.txtName.Location = new System.Drawing.Point(24, 150);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(185, 23);
             this.txtName.TabIndex = 38;
@@ -146,7 +147,7 @@
             this.cbBalance.Items.AddRange(new object[] {
             "Asset",
             "Liability"});
-            this.cbBalance.Location = new System.Drawing.Point(23, 80);
+            this.cbBalance.Location = new System.Drawing.Point(24, 80);
             this.cbBalance.Name = "cbBalance";
             this.cbBalance.Size = new System.Drawing.Size(185, 25);
             this.cbBalance.TabIndex = 37;

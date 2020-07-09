@@ -47,7 +47,7 @@
             // lblValue
             // 
             this.lblValue.AutoSize = true;
-            this.lblValue.Location = new System.Drawing.Point(25, 270);
+            this.lblValue.Location = new System.Drawing.Point(20, 270);
             this.lblValue.Name = "lblValue";
             this.lblValue.Size = new System.Drawing.Size(45, 17);
             this.lblValue.TabIndex = 24;
@@ -55,7 +55,7 @@
             // 
             // nudValue
             // 
-            this.nudValue.Location = new System.Drawing.Point(29, 294);
+            this.nudValue.Location = new System.Drawing.Point(24, 294);
             this.nudValue.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -68,7 +68,7 @@
             // lblCashflow
             // 
             this.lblCashflow.AutoSize = true;
-            this.lblCashflow.Location = new System.Drawing.Point(25, 203);
+            this.lblCashflow.Location = new System.Drawing.Point(20, 203);
             this.lblCashflow.Name = "lblCashflow";
             this.lblCashflow.Size = new System.Drawing.Size(69, 17);
             this.lblCashflow.TabIndex = 22;
@@ -77,7 +77,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(25, 131);
+            this.lblName.Location = new System.Drawing.Point(20, 131);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(48, 17);
             this.lblName.TabIndex = 21;
@@ -86,7 +86,7 @@
             // lblFlow
             // 
             this.lblFlow.AutoSize = true;
-            this.lblFlow.Location = new System.Drawing.Point(25, 61);
+            this.lblFlow.Location = new System.Drawing.Point(20, 61);
             this.lblFlow.Name = "lblFlow";
             this.lblFlow.Size = new System.Drawing.Size(92, 17);
             this.lblFlow.TabIndex = 20;
@@ -98,7 +98,7 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAdd.Location = new System.Drawing.Point(29, 340);
+            this.btnAdd.Location = new System.Drawing.Point(24, 340);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(181, 43);
             this.btnAdd.TabIndex = 19;
@@ -108,7 +108,7 @@
             // 
             // nudCashflow
             // 
-            this.nudCashflow.Location = new System.Drawing.Point(29, 227);
+            this.nudCashflow.Location = new System.Drawing.Point(24, 227);
             this.nudCashflow.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -120,7 +120,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(25, 155);
+            this.txtName.Location = new System.Drawing.Point(20, 155);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(185, 23);
             this.txtName.TabIndex = 17;
@@ -131,7 +131,7 @@
             this.cbFlow.Items.AddRange(new object[] {
             "Asset",
             "Liability"});
-            this.cbFlow.Location = new System.Drawing.Point(25, 85);
+            this.cbFlow.Location = new System.Drawing.Point(20, 85);
             this.cbFlow.Name = "cbFlow";
             this.cbFlow.Size = new System.Drawing.Size(185, 25);
             this.cbFlow.TabIndex = 16;
@@ -140,6 +140,7 @@
             // 
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));

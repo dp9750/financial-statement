@@ -44,7 +44,7 @@
             // lblCashflow
             // 
             this.lblCashflow.AutoSize = true;
-            this.lblCashflow.Location = new System.Drawing.Point(27, 200);
+            this.lblCashflow.Location = new System.Drawing.Point(23, 200);
             this.lblCashflow.Name = "lblCashflow";
             this.lblCashflow.Size = new System.Drawing.Size(69, 17);
             this.lblCashflow.TabIndex = 22;
@@ -53,7 +53,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(27, 128);
+            this.lblName.Location = new System.Drawing.Point(23, 128);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(48, 17);
             this.lblName.TabIndex = 21;
@@ -62,7 +62,7 @@
             // lblFlow
             // 
             this.lblFlow.AutoSize = true;
-            this.lblFlow.Location = new System.Drawing.Point(27, 58);
+            this.lblFlow.Location = new System.Drawing.Point(23, 58);
             this.lblFlow.Name = "lblFlow";
             this.lblFlow.Size = new System.Drawing.Size(100, 17);
             this.lblFlow.TabIndex = 20;
@@ -74,7 +74,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUpdate.Location = new System.Drawing.Point(31, 278);
+            this.btnUpdate.Location = new System.Drawing.Point(27, 278);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(147, 33);
             this.btnUpdate.TabIndex = 19;
@@ -84,7 +84,7 @@
             // 
             // nudCashflow
             // 
-            this.nudCashflow.Location = new System.Drawing.Point(31, 224);
+            this.nudCashflow.Location = new System.Drawing.Point(27, 224);
             this.nudCashflow.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -96,7 +96,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(27, 152);
+            this.txtName.Location = new System.Drawing.Point(23, 152);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(151, 23);
             this.txtName.TabIndex = 17;
@@ -107,7 +107,7 @@
             this.cbFlow.Items.AddRange(new object[] {
             "Income",
             "Expense"});
-            this.cbFlow.Location = new System.Drawing.Point(27, 82);
+            this.cbFlow.Location = new System.Drawing.Point(23, 82);
             this.cbFlow.Name = "cbFlow";
             this.cbFlow.Size = new System.Drawing.Size(151, 25);
             this.cbFlow.TabIndex = 16;
@@ -116,6 +116,7 @@
             // 
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));

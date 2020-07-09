@@ -51,6 +51,11 @@ namespace Financial_statement_v1._2
             return instance;
         }
 
+        public double TotalExpenses()
+        {
+            return totalExpenses;
+        }
+
         #endregion
 
         #region Validators
@@ -150,6 +155,8 @@ namespace Financial_statement_v1._2
             lblTotalExpenses.Text = "Total Expenses: " +  totalExpenses + "€";
             lblPassive.Text = "Passiv: " + passive + "€ (" + GetPassive() + " %)";
             lblPayday.Text = "Payday: " + (totalIncome - totalExpenses) + "€";
+
+            pnlProgressActive.Width = pnlProgress.Width * GetPassive() / 100;
         }
 
         // update all listboxes, total income, total expenses, passive income (+ %)
