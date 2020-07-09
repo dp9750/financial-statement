@@ -6,13 +6,13 @@ namespace Financial_statement_v1._2
     public partial class EditFlow : Form
     {
         // povezava na main
-        private Main instance = null;
+        private Main Main = null;
 
         // element za obdelavo
-        private Element element;
+        private Element element { set; get; }
 
         // File Handler za datoteke
-        private FileHandler FileHandler;
+        private FileHandler FileHandler { set; get; }
 
         // konstruktor
         public EditFlow(Element element, FileHandler FileHandler)
@@ -25,7 +25,7 @@ namespace Financial_statement_v1._2
         // form load
         private void EditFlow_Load(object sender, EventArgs e)
         {
-            instance = Main.GetInstance();
+            Main = Main.GetInstance();
             FillInfo();
         }
 
@@ -36,7 +36,7 @@ namespace Financial_statement_v1._2
             string name = txtName.Text;
             decimal cashflow = nudCashflow.Value;
 
-            if (!instance.ValidInfo(flow, name, cashflow))
+            if (!Main.ValidInfo(flow, name, cashflow))
                 MessageBox.Show("Invalid Information");
             else {
                 Element newElement = new Flow(name, double.Parse(cashflow.ToString()), Config.GetFlow(flow));
@@ -44,10 +44,11 @@ namespace Financial_statement_v1._2
                 FileHandler.DeleteElement(element);
                 FileHandler.WriteToFile(newElement);
 
-                instance.Update();
-                instance.DisableButtons();
+                Main.Update();
+                Main.DisableButtons();
 
                 MessageBox.Show("Element Updated Successfully");
+                Main.Show();
                 Close();
             }
         }
@@ -80,5 +81,10 @@ namespace Financial_statement_v1._2
 
         #endregion
 
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Main.Show();
+            Close();
+        }
     }
 }

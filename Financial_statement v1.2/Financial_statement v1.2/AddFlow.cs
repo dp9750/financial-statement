@@ -27,9 +27,15 @@ namespace Financial_statement_v1._2
                 FileHandler.WriteToFile(new Flow(name, double.Parse(cashflow.ToString()), Config.GetFlow(flow)));
                 Main.Update();
                 MessageBox.Show(flow + " Added Successfully");
+                Main.Show();
                 Close();
             }
         }
 
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Main.Show();
+            Close();
+        }
     }
 }

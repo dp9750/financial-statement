@@ -26,3 +26,4 @@ C:\Users\Denis Prelog\Documents\GitHub\FinancialStatement\Financial_statement v1
 C:\Users\Denis Prelog\Documents\GitHub\FinancialStatement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement v1.2.csproj.CoreCompileInputs.cache
 C:\Users\Denis Prelog\Documents\GitHub\FinancialStatement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement v1.2.exe
 C:\Users\Denis Prelog\Documents\GitHub\FinancialStatement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement v1.2.pdb
+C:\Users\Denis Prelog\Documents\GitHub\FinancialStatement\Financial_statement v1.2\Financial_statement v1.2\obj\Debug\Financial_statement_v1._2.Statistics.resources

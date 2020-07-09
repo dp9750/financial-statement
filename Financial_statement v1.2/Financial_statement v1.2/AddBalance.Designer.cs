@@ -37,14 +37,17 @@
             this.nudCashflow = new System.Windows.Forms.NumericUpDown();
             this.txtName = new System.Windows.Forms.TextBox();
             this.cbFlow = new System.Windows.Forms.ComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.pblTop = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.nudValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCashflow)).BeginInit();
+            this.pblTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblValue
             // 
             this.lblValue.AutoSize = true;
-            this.lblValue.Location = new System.Drawing.Point(12, 218);
+            this.lblValue.Location = new System.Drawing.Point(25, 270);
             this.lblValue.Name = "lblValue";
             this.lblValue.Size = new System.Drawing.Size(45, 17);
             this.lblValue.TabIndex = 24;
@@ -52,20 +55,20 @@
             // 
             // nudValue
             // 
-            this.nudValue.Location = new System.Drawing.Point(16, 242);
+            this.nudValue.Location = new System.Drawing.Point(29, 294);
             this.nudValue.Maximum = new decimal(new int[] {
             1410065408,
             2,
             0,
             0});
             this.nudValue.Name = "nudValue";
-            this.nudValue.Size = new System.Drawing.Size(147, 23);
+            this.nudValue.Size = new System.Drawing.Size(181, 23);
             this.nudValue.TabIndex = 23;
             // 
             // lblCashflow
             // 
             this.lblCashflow.AutoSize = true;
-            this.lblCashflow.Location = new System.Drawing.Point(12, 151);
+            this.lblCashflow.Location = new System.Drawing.Point(25, 203);
             this.lblCashflow.Name = "lblCashflow";
             this.lblCashflow.Size = new System.Drawing.Size(69, 17);
             this.lblCashflow.TabIndex = 22;
@@ -74,7 +77,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(12, 79);
+            this.lblName.Location = new System.Drawing.Point(25, 131);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(48, 17);
             this.lblName.TabIndex = 21;
@@ -83,7 +86,7 @@
             // lblFlow
             // 
             this.lblFlow.AutoSize = true;
-            this.lblFlow.Location = new System.Drawing.Point(12, 9);
+            this.lblFlow.Location = new System.Drawing.Point(25, 61);
             this.lblFlow.Name = "lblFlow";
             this.lblFlow.Size = new System.Drawing.Size(92, 17);
             this.lblFlow.TabIndex = 20;
@@ -91,31 +94,35 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(16, 288);
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAdd.Location = new System.Drawing.Point(29, 340);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(147, 33);
+            this.btnAdd.Size = new System.Drawing.Size(181, 43);
             this.btnAdd.TabIndex = 19;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // nudCashflow
             // 
-            this.nudCashflow.Location = new System.Drawing.Point(16, 175);
+            this.nudCashflow.Location = new System.Drawing.Point(29, 227);
             this.nudCashflow.Maximum = new decimal(new int[] {
             1410065408,
             2,
             0,
             0});
             this.nudCashflow.Name = "nudCashflow";
-            this.nudCashflow.Size = new System.Drawing.Size(147, 23);
+            this.nudCashflow.Size = new System.Drawing.Size(181, 23);
             this.nudCashflow.TabIndex = 18;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(12, 103);
+            this.txtName.Location = new System.Drawing.Point(25, 155);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(151, 23);
+            this.txtName.Size = new System.Drawing.Size(185, 23);
             this.txtName.TabIndex = 17;
             // 
             // cbFlow
@@ -124,16 +131,44 @@
             this.cbFlow.Items.AddRange(new object[] {
             "Asset",
             "Liability"});
-            this.cbFlow.Location = new System.Drawing.Point(12, 33);
+            this.cbFlow.Location = new System.Drawing.Point(25, 85);
             this.cbFlow.Name = "cbFlow";
-            this.cbFlow.Size = new System.Drawing.Size(151, 25);
+            this.cbFlow.Size = new System.Drawing.Size(185, 25);
             this.cbFlow.TabIndex = 16;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(177, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(48, 44);
+            this.btnExit.TabIndex = 36;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
+            // pblTop
+            // 
+            this.pblTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.pblTop.Controls.Add(this.btnExit);
+            this.pblTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pblTop.Location = new System.Drawing.Point(0, 0);
+            this.pblTop.Name = "pblTop";
+            this.pblTop.Size = new System.Drawing.Size(225, 44);
+            this.pblTop.TabIndex = 37;
             // 
             // AddBalance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(183, 330);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.ClientSize = new System.Drawing.Size(225, 401);
+            this.Controls.Add(this.pblTop);
             this.Controls.Add(this.lblValue);
             this.Controls.Add(this.nudValue);
             this.Controls.Add(this.lblCashflow);
@@ -144,7 +179,8 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.cbFlow);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -153,6 +189,7 @@
             this.Text = "Add Balance";
             ((System.ComponentModel.ISupportInitialize)(this.nudValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCashflow)).EndInit();
+            this.pblTop.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +206,7 @@
         private System.Windows.Forms.NumericUpDown nudCashflow;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.ComboBox cbFlow;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel pblTop;
     }
 }

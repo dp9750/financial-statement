@@ -26,7 +26,7 @@ namespace Financial_statement_v1._2
             FillInfo();
         }
 
-        // button 'Update'
+        // Button Update
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             string balance = cbBalance.Text;
@@ -36,7 +36,8 @@ namespace Financial_statement_v1._2
 
             if (!Main.ValidInfo(balance, name, cashflow, value))
                 MessageBox.Show("Invalid Information");
-            else {
+            else
+            {
                 Element newElement = new Balance(name, double.Parse(cashflow.ToString()), Config.GetBalance(balance), double.Parse(value.ToString()));
 
                 FileHandler.DeleteElement(element);
@@ -46,6 +47,7 @@ namespace Financial_statement_v1._2
                 Main.DisableButtons();
 
                 MessageBox.Show("Element Updated Successfully");
+                Main.Show();
                 Close();
             }
         }
@@ -80,5 +82,12 @@ namespace Financial_statement_v1._2
 
         #endregion
 
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Main.Show();
+            Close();
+        }
+
+        
     }
 }

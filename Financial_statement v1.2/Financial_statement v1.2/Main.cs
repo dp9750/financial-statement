@@ -166,16 +166,18 @@ namespace Financial_statement_v1._2
                 if(e.GetType() == typeof(Balance)) {                    // if element is asset or liability
                     try {
                         double value = e.GetValue();
-                        string output = ID + " " + name + " - " + value;
+                        string output = ID + " " + name + " - " + value + " €";
                         if(e.GetBalance() == Config.Balance.Asset) {    // element is asset
                             lbAssets.Items.Add(output);
-                            lbIncome.Items.Add(ID + " " + name + " - " + cashflow);
+
+                            if(cashflow > 0)
+                                lbIncome.Items.Add(ID + " " + name + " - " + cashflow + " €");
 
                             totalIncome += cashflow;
                             passive += cashflow;
                         } else {                                        // is liability
                             lbLiabilities.Items.Add(output);
-                            lbExpense.Items.Add(ID + " " + name + " - " + cashflow);
+                            lbExpense.Items.Add(ID + " " + name + " - " + cashflow + " €");
 
                             totalExpenses += cashflow;
                             badDebth += value;
@@ -184,7 +186,7 @@ namespace Financial_statement_v1._2
 
                     }              
                 } else {
-                    string output = ID + " " + name + " - " + cashflow;
+                    string output = ID + " " + name + " - " + cashflow + " €";
                     if (e.GetFlow() == Config.Flow.Income) {
                         lbIncome.Items.Add(output);
 
@@ -276,13 +278,15 @@ namespace Financial_statement_v1._2
         private void BtnAddFlow_Click(object sender, EventArgs e)
         {
             AddFlow window = new AddFlow(FileHandler);
-            window.ShowDialog();
+            window.Show();
+            Hide();
         }
 
         private void BtnAddBalance_Click(object sender, EventArgs e)
         {
             AddBalance window = new AddBalance(FileHandler);
-            window.ShowDialog();
+            window.Show();
+            Hide();
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -296,11 +300,12 @@ namespace Financial_statement_v1._2
                 } else {
                     if(Balance.ToString() == element.GetType().Name) {
                         EditBalance editBalance = new EditBalance(element, FileHandler);
-                        editBalance.ShowDialog();
+                        editBalance.Show();
                     } else {
                         EditFlow editFlow = new EditFlow(element, FileHandler);
-                        editFlow.ShowDialog();
+                        editFlow.Show();
                     }
+                    Hide();
                 }
 
             }
@@ -317,6 +322,15 @@ namespace Financial_statement_v1._2
                     Update();
                     MessageBox.Show("Element deleted successfully");
                 }
+            }
+        }
+
+        private void BtnStatistics_Click(object sender, EventArgs e)
+        {
+            if(elements.Count > 0) {
+                Statistics window = new Statistics();
+                window.Show();
+                Hide();
             }
         }
 
