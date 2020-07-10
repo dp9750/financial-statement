@@ -2,5 +2,5 @@ Income;824;Služba;1300
 Expense;898;Telefon;15
 Expense;449;Nafta;150
 Expense;959;Bančna kartica;4
-Asset;793;Money;0;3000
-Asset;499;Stanovanje;100;25000
+Liability;418;Avto;200;5000
+Asset;447;Savings;0;3000
