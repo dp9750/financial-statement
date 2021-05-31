@@ -5,8 +5,8 @@ namespace Financial_statement_v1._2
 {
     public partial class AddBalance : Form
     {
-        private Main Main { set; get; }
-        private FileHandler FileHandler { set; get; }
+        private Main Main;
+        private FileHandler FileHandler;
 
         public AddBalance(FileHandler FileHandler)
         {

@@ -24,7 +24,7 @@ namespace Financial_statement_v1._2
         // the selected ID to update or delete
         private int selectedID = 0;
 
-        private FileHandler FileHandler { set; get; }
+        private FileHandler FileHandler;
 
         #endregion
 
@@ -101,7 +101,7 @@ namespace Financial_statement_v1._2
         // used in 'Add Balance'
         public bool ValidInfo(string flow, string name, decimal cashflow, decimal value)
         {
-            if (name == "")
+            if (name == null || name == "")
                 return false;
 
             if (!Config.IsBalance(flow))
@@ -137,15 +137,18 @@ namespace Financial_statement_v1._2
             totalIncome = totalExpenses = passive = badDebth = 0;
         }
 
+        // Get passive income in percents
         private int GetPassive()
         {
             if (totalExpenses == 0)
                 return 0;
 
-            double tmp = passive / totalExpenses * 100;
-            if (tmp >= 100)
+            double percents = passive / totalExpenses * 100;
+
+            if (percents >= 100)
                 return 100;
-            return (int)tmp;
+
+            return (int)percents;
         }
 
         // updates total income text, passive ...
@@ -153,7 +156,7 @@ namespace Financial_statement_v1._2
         {
             lblTotalIncome.Text = "Total Income: " + totalIncome + "€";
             lblTotalExpenses.Text = "Total Expenses: " +  totalExpenses + "€";
-            lblPassive.Text = "Passiv: " + passive + "€ (" + GetPassive() + " %)";
+            lblPassive.Text = "Passive: " + passive + "€ (" + GetPassive() + " %)";
             lblPayday.Text = "Payday: " + (totalIncome - totalExpenses) + "€";
 
             pnlProgressActive.Width = pnlProgress.Width * GetPassive() / 100;
@@ -320,15 +323,15 @@ namespace Financial_statement_v1._2
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            if (selectedID != 0) {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this element? ", "Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(result == DialogResult.Yes) {
-                    FileHandler.DeleteElement(FindID(selectedID));
-                    selectedID = 0;
-                    DisableButtons();
-                    Update();
-                    MessageBox.Show("Element deleted successfully");
-                }
+            if (selectedID == 0) return;
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this element? ", "Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes) {
+                FileHandler.DeleteElement(FindID(selectedID));
+                selectedID = 0;
+                DisableButtons();
+                Update();
+                MessageBox.Show("Element deleted successfully");
             }
         }
 

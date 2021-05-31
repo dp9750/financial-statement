@@ -4,17 +4,17 @@ namespace Financial_statement_v1._2
 {
     public abstract class Element
     {
-        protected int ID { set; get; }
-        protected string name { set; get; }
-        protected double cashflow { set; get; }
+        protected int ID;
+        protected string name;
+        protected double cashflow;
 
-        protected Config.Flow flow { set; get; }
+        protected Config.Flow flow;
 
         private Random rnd;
 
         public Element(string name, double cashflow)
         {
-            rnd = new Random();
+            this.rnd = new Random();
             this.name = name;
             this.cashflow = cashflow;
 

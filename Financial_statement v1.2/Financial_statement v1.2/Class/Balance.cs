@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Financial_statement_v1._2
+﻿namespace Financial_statement_v1._2
 {
     public class Balance : Element
     {
-        private Config.Balance balance { set; get; }
-        private double value { set; get; }
+        private Config.Balance balance;
+        private double value;
 
         public Balance(string name, double cashflow, Config.Balance balance, double value) : base(name, cashflow)
         {

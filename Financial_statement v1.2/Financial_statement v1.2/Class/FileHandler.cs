@@ -5,8 +5,8 @@ namespace Financial_statement_v1._2
 {
     public class FileHandler
     {
-        private Main Main { set; get; }
-        private string file { set; get; }
+        private Main Main;
+        private string file;
 
         public FileHandler(string file)
         {
@@ -19,10 +19,12 @@ namespace Financial_statement_v1._2
         {
             try {
                 StreamReader sr = new StreamReader(file);
+
                 string line = "";
                 while ((line = sr.ReadLine()) != null)
                     if (Main.ValidLine(line))
                         Main.ProcessLine(line);
+
                 sr.Close();
             } catch (Exception) {
                 Console.WriteLine("Error reading file");
@@ -45,12 +47,17 @@ namespace Financial_statement_v1._2
         // Append to file according to the type
         public void WriteToFile(Element e)
         {
-            if (Balance.ToString() == e.GetType().Name)
-                using (StreamWriter sw = File.AppendText(file))
-                    sw.WriteLine(e.GetBalance() + ";" + e.GetID() + ";" + e.GetName() + ";" + e.GetCashflow() + ";" + e.GetValue());
-            else
-                using (StreamWriter sw = File.AppendText(file))
-                    sw.WriteLine(e.GetFlow() + ";" + e.GetID() + ";" + e.GetName() + ";" + e.GetCashflow());
+            using (StreamWriter sw = File.AppendText(this.file)) 
+            {
+                string s = "";
+
+                if (Balance.ToString() == e.GetType().Name)
+                    s = e.GetBalance() + ";" + e.GetID() + ";" + e.GetName() + ";" + e.GetCashflow() + ";" + e.GetValue();
+                else
+                    s = e.GetFlow() + ";" + e.GetID() + ";" + e.GetName() + ";" + e.GetCashflow();
+
+                sw.WriteLine(s);
+            }
         }
 
     }

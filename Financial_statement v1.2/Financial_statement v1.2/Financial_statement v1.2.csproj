@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Financial_statement_v1._2</RootNamespace>
     <AssemblyName>Financial_statement v1.2</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,8 +60,8 @@
     <Compile Include="AddFlow.Designer.cs">
       <DependentUpon>AddFlow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Balance.cs" />
-    <Compile Include="Config.cs" />
+    <Compile Include="Class\Balance.cs" />
+    <Compile Include="Class\Config.cs" />
     <Compile Include="EditBalance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,9 +74,9 @@
     <Compile Include="EditFlow.Designer.cs">
       <DependentUpon>EditFlow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Element.cs" />
-    <Compile Include="FileHandler.cs" />
-    <Compile Include="Flow.cs" />
+    <Compile Include="Class\Element.cs" />
+    <Compile Include="Class\FileHandler.cs" />
+    <Compile Include="Class\Flow.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +114,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
