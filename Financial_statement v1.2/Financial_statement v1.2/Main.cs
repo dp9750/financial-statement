@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms; 
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace Financial_statement_v1._2
 {
@@ -19,7 +20,7 @@ namespace Financial_statement_v1._2
         public List<Element> elements;
 
         // total of everything
-        private double totalIncome = 0, totalExpenses = 0, passive = 0, badDebth = 0;
+        public double totalIncome = 0, totalExpenses = 0, passive = 0, badDebth = 0;
 
         // the selected ID to update or delete
         private int selectedID = 0;
@@ -49,11 +50,6 @@ namespace Financial_statement_v1._2
         public static Main GetInstance()
         {
             return instance;
-        }
-
-        public double TotalExpenses()
-        {
-            return totalExpenses;
         }
 
         #endregion
@@ -141,7 +137,7 @@ namespace Financial_statement_v1._2
         private int GetPassive()
         {
             if (totalExpenses == 0)
-                return 0;
+                return 100;
 
             double percents = passive / totalExpenses * 100;
 
@@ -154,12 +150,24 @@ namespace Financial_statement_v1._2
         // updates total income text, passive ...
         private void UpdateInformation()
         {
+            double payday = totalIncome - totalExpenses;
+
+            // Set label text's
             lblTotalIncome.Text = "Total Income: " + totalIncome + "€";
             lblTotalExpenses.Text = "Total Expenses: " +  totalExpenses + "€";
             lblPassive.Text = "Passive: " + passive + "€ (" + GetPassive() + " %)";
-            lblPayday.Text = "Payday: " + (totalIncome - totalExpenses) + "€";
+            lblPayday.Text = "Payday: " + payday + "€";
 
+            // Set passive income progress bar width
             pnlProgressActive.Width = pnlProgress.Width * GetPassive() / 100;
+
+            // Set payday label color
+            if (payday == 0)
+                lblPayday.ForeColor = Color.Black;
+            else if (payday > 0)
+                lblPayday.ForeColor = Color.Green;
+            else
+                lblPayday.ForeColor = Color.Red;
         }
 
         // update all listboxes, total income, total expenses, passive income (+ %)
@@ -342,6 +350,13 @@ namespace Financial_statement_v1._2
                 window.Show();
                 Hide();
             }
+        }
+
+        private void BtnRentalManager_Click(object sender, EventArgs e)
+        {
+            RentalManager manager = new RentalManager();
+            manager.Show();
+            Hide();
         }
 
         #endregion

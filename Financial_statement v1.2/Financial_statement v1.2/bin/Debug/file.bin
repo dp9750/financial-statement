@@ -1,8 +1,7 @@
-Income;824;Služba;1300
-Expense;898;Telefon;15
-Expense;449;Nafta;150
-Expense;959;Bančna kartica;4
-Liability;418;Avto;200;5000
-Asset;880;Savings;0;1000
-Asset;582;Sincere Systems;100;1900
-Expense;132;Zavarovanje;100
+Asset;532;Capital;0;40
+Asset;659;Savings;0;1550
+Asset;480;Študentski;0;50
+Asset;895;Sincere Systems;150;2200
+Asset;167;NLB;0;136
+Asset;663;MT4;0;400
+Expense;936;iGenius;85

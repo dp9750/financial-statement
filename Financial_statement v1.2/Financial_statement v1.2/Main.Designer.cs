@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.lblPayday = new System.Windows.Forms.Label();
             this.lblPassive = new System.Windows.Forms.Label();
             this.lblTotalExpenses = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
             this.lblAssets = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.BtnRentalManager = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnStatistics = new System.Windows.Forms.Button();
@@ -312,6 +314,7 @@
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.pnlMain.Controls.Add(this.BtnRentalManager);
             this.pnlMain.Controls.Add(this.pnlLogo);
             this.pnlMain.Controls.Add(this.btnStatistics);
             this.pnlMain.Controls.Add(this.btnAddFlow);
@@ -323,6 +326,23 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(200, 504);
             this.pnlMain.TabIndex = 36;
+            // 
+            // BtnRentalManager
+            // 
+            this.BtnRentalManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.BtnRentalManager.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRentalManager.FlatAppearance.BorderSize = 0;
+            this.BtnRentalManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRentalManager.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold);
+            this.BtnRentalManager.Location = new System.Drawing.Point(0, 351);
+            this.BtnRentalManager.Name = "BtnRentalManager";
+            this.BtnRentalManager.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnRentalManager.Size = new System.Drawing.Size(200, 50);
+            this.BtnRentalManager.TabIndex = 32;
+            this.BtnRentalManager.Text = "Rental manager";
+            this.BtnRentalManager.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRentalManager.UseVisualStyleBackColor = false;
+            this.BtnRentalManager.Click += new System.EventHandler(this.BtnRentalManager_Click);
             // 
             // pnlLogo
             // 
@@ -405,6 +425,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -454,6 +475,7 @@
         private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Panel pnlProgress;
         private System.Windows.Forms.Panel pnlProgressActive;
+        private System.Windows.Forms.Button BtnRentalManager;
     }
 }
 
