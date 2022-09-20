@@ -20,7 +20,7 @@ namespace Financial_statement_v1._2
         public List<Element> elements;
 
         // total of everything
-        public double totalIncome = 0, totalExpenses = 0, passive = 0, badDebth = 0;
+        public double totalIncome = 0, totalExpenses = 0, passive = 0, badDebth = 0, totalAssets = 0, totalLiabilities = 0;
 
         // the selected ID to update or delete
         private int selectedID = 0;
@@ -130,7 +130,7 @@ namespace Financial_statement_v1._2
             lbLiabilities.Items.Clear();
 
             elements = new List<Element>();
-            totalIncome = totalExpenses = passive = badDebth = 0;
+            totalIncome = totalExpenses = passive = badDebth = totalAssets = totalLiabilities = 0;
         }
 
         // Get passive income in percents
@@ -153,10 +153,11 @@ namespace Financial_statement_v1._2
             double payday = totalIncome - totalExpenses;
 
             // Set label text's
-            lblTotalIncome.Text = "Total Income: " + totalIncome + "€";
-            lblTotalExpenses.Text = "Total Expenses: " +  totalExpenses + "€";
-            lblPassive.Text = "Passive: " + passive + "€ (" + GetPassive() + " %)";
-            lblPayday.Text = "Payday: " + payday + "€";
+            lblTotalIncome.Text = "Total Income: " + totalIncome + " €";
+            lblTotalExpenses.Text = "Total Expenses: " +  totalExpenses + " €";
+            lblPassive.Text = "Passive: " + passive + " € (" + GetPassive() + " %)";
+            lblPayday.Text = "Payday: " + payday + " €";
+            lblAssets.Text = "Assets: " + totalAssets + " €";
 
             // Set passive income progress bar width
             pnlProgressActive.Width = pnlProgress.Width * GetPassive() / 100;
@@ -193,6 +194,7 @@ namespace Financial_statement_v1._2
 
                             totalIncome += cashflow;
                             passive += cashflow;
+                            totalAssets += e.GetValue();
                         } else {                                        // is liability
                             lbLiabilities.Items.Add(output);
                             lbExpense.Items.Add(ID + " " + name + " - " + cashflow + " €");
@@ -350,13 +352,6 @@ namespace Financial_statement_v1._2
                 window.Show();
                 Hide();
             }
-        }
-
-        private void BtnRentalManager_Click(object sender, EventArgs e)
-        {
-            RentalManager manager = new RentalManager();
-            manager.Show();
-            Hide();
         }
 
         #endregion

@@ -77,12 +77,6 @@
     <Compile Include="Class\Element.cs" />
     <Compile Include="Class\FileHandler.cs" />
     <Compile Include="Class\Flow.cs" />
-    <Compile Include="RentalManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RentalManager.Designer.cs">
-      <DependentUpon>RentalManager.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,9 +116,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RentalManager.resx">
-      <DependentUpon>RentalManager.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
     </EmbeddedResource>
